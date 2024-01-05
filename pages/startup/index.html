@@ -1,0 +1,25 @@
+{{head}}
+<body>
+  {{header}}
+  <h1>Startup screen</h1>
+  <p>
+    The startup screen from GoZen is where your previously opened projects are displayed together with the options to create a new project. This is it's own Godot project and separate from the main editor, similar to how the settings menu is also it's own separate project. This is done for performance and aesthetic reasons. It also helps in dividing the code into separate chunks.
+  </p>
+  <h2>On startup</h2>
+  <p>
+    When "GoZen startup" launches, the most recent projects get loaded first. During this process we check if no duplicates are in the list, and we populate the list which is displayed to the users. 
+  </p>
+  <p>
+    If the Startup screen got opened with a *.gozen file, we will automatically switch to the editor instead. To see a full list of the GoZen files <a href="/gozen-editor/#startup-arguments"></a>
+  </p>
+  <h2>Recent projects</h2>
+  <p>
+    The recent projects data get saved in a normal text file, each line looks like this:
+  </p>
+  <p>'title||path||datetime'</p>
+  <p>
+    Title is the title of the project, path is the full path where it is located and datetime is the last time it was edited.
+  </p>
+  
+  {{footer}}
+</body>
