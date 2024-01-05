@@ -1,0 +1,36 @@
+{{head}}
+<body>
+  {{header}}
+  <h1>Settings menu</h1>
+  <p>
+    The settings menu is a separate floating window so it can be opened independently from the editor. This allows for people to fix settings which crash the editor on startup.
+  </p>
+  <h2>Startup arguments</h2>
+  <p>
+    There are a couple of startup arguments, if non are given it will default to 'type settings'.
+  </p>
+  <ul>
+    <li><b>--type=</b>&lt;settings, project_settings&gt;: This decides which settings menu is displayed;</li>
+    <li><b>--project_path=</b>&lt;path to a project file&gt;: Needed when type is project_settings;</li>
+  </ul>
+  <h2>Layout builder</h2>
+  <p>
+    The way the layout builder work is by using the settings menu config or the correct type (settings/project_settings). We loop through each section and each section gets a section label, followed by all settings labels and their nodes to change their values, and closed of with a separator.
+  </p>
+  <h3>Adding a setting</h3>
+  <p>
+    Inside of the editor you can add a setting in the settings manager, for custom modules there will be a separate method. We need a setter, a getter and a meta getter. Naming scheme for these are 'set_*setting_name*', 'get_*setting_name*', and 'get_*setting_name*_meta'. 
+  </p>
+  <p>
+    Localization needs to be taken into account and setting entries should also be added to the translations with following keys: 'SETTING_*setting name all caps*' and 'TOOLTIP_SETTING_*setting name all caps*'.
+  </p>
+  <h3>Meta</h3>
+  <p>
+    The meta data for each setting should contain a type, which can be 'text', 'float', 'int', 'bool', ... all lower case. Except for type, you also need a 'default' entry for the default value of the setting.
+  </p>
+  <p>
+    For int and float you'll need a 'step', 'min_value', and 'max_value' as well. If you want to create an OptionButton you'll need to have a 'options' entry which is a dictionary with it's structure like this: {key, option_name}.
+  </p>
+
+  {{footer}}
+</body>
